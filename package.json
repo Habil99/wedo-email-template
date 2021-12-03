@@ -1,0 +1,23 @@
+{
+  "name": "wedo-email",
+  "version": "1.0.0",
+  "description": "Wedo Email Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Habil Abiyev",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "cssnano": "^5.0.12",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.44.0"
+  }
+}
