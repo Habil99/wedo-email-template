@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./ckeditor/ckeditor.js"></script>
+  <body>
+    <textarea id="editor">
+      <style type="text/css">
+      a img {
+        border: none !important;
+        text-decoration: none !important;
+        outline: none !important;
+      }
+      * {
+        font-family: Inter, sans-serif;
+      }
+      body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        margin: 0;
+        width: 100%;
+      }
+      #outlook a,
+      body {
+        padding: 0;
+      }
+      .email-container {
+        margin: 0 auto;
+        max-width: 560px;
+        padding: 40px 0;
+        width: 100%;
+      }
+      .email-main {
+        padding: 0 40px;
+      }
+      @media screen and (max-width: 480px) {
+        .email-main {
+          padding: 0 20px;
+        }
+      }
+      .email-logo {
+        margin-bottom: 40px;
+      }
+      .email-title {
+        color: #11142d;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 29px;
+      }
+      @media screen and (max-width: 560px) {
+        .email-title {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+      .email-desc {
+        color: #11142d;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        line-height: 150%;
+        margin-bottom: 24px;
+      }
+      @media screen and (max-width: 560px) {
+        .email-desc {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+      .email-illustration {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 360px;
+        width: 100%;
+      }
+      .email-illustration img {
+        object-fit: contain;
+        width: 100%;
+      }
+      .email-cards-wrapper {
+        margin: 120px 0;
+      }
+      .email-cards-wrapper-title {
+        align-items: flex-end;
+        color: #11142d;
+        display: flex;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 150%;
+      }
+      @media screen and (max-width: 560px) {
+        .email-cards-wrapper-title {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+      .email-cards__item {
+        grid-gap: 8px;
+        display: grid;
+        grid-template-columns: 166px 1fr;
+        margin-top: 40px;
+      }
+      @media screen and (max-width: 480px) {
+        .email-cards__item {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+      .email-cards__item:nth-child(2n) {
+        grid-template-columns: 1fr 166px;
+      }
+      @media screen and (max-width: 480px) {
+        .email-cards__item:nth-child(2n) {
+          flex-direction: column;
+        }
+      }
+      .email-cards__item--body {
+        grid-gap: 8px;
+        display: grid;
+        grid-template-columns: 20px 1fr;
+      }
+      .email-cards__item--count {
+        color: #7c7d89;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        line-height: 22px;
+        margin: 0;
+      }
+      @media screen and (max-width: 560px) {
+        .email-cards__item--count {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+      .email-cards__item--title {
+        color: #11142d;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        line-height: 22px;
+        margin: 0 0 8px;
+      }
+      @media screen and (max-width: 560px) {
+        .email-cards__item--title {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+      .email-cards__item--desc {
+        color: #7c7d89;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        margin: 0;
+      }
+      .email-cards__item--img {
+        border-radius: 16px;
+        height: 87px;
+        position: relative;
+        width: 166px;
+      }
+      .email-cards__item--img img {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+      }
+      .email-cards__item + .email-cards__item {
+        border-top: 1px solid rgba(207, 200, 255, 0.5);
+        padding-top: 40px;
+      }
+      .email-btn {
+        align-items: center;
+        background-color: #5e5ce6;
+        border-radius: 12px;
+        color: #fff;
+        display: flex;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        justify-content: center;
+        letter-spacing: 0.02em;
+        line-height: 20px;
+        max-width: 100%;
+        padding: 14px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .email-btn-main {
+        background-color: #5e5ce6;
+        margin-top: 50px;
+      }
+      .email-btn-green {
+        background-color: #23b957;
+      }
+      .email-discover {
+        grid-gap: 24px;
+        align-items: center;
+        background: #f2f0ff;
+        border-radius: 16px;
+        display: flex;
+        margin-bottom: 120px;
+        padding: 24px;
+      }
+      @media screen and (max-width: 480px) {
+        .email-discover {
+          flex-wrap: wrap-reverse;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+      .email-discover--body {
+        display: flex;
+        flex-direction: column;
+      }
+      .email-discover--title {
+        color: #11142d;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 22px;
+      }
+      @media screen and (max-width: 560px) {
+        .email-discover--title {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+      .email-discover--desc {
+        color: #11142d;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        margin-bottom: 16px;
+      }
+      .email-discover--img img {
+        object-fit: cover;
+        width: 180px;
+      }
+      .email-categories--title {
+        align-items: flex-end;
+        color: #11142d;
+        display: flex;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 150%;
+        margin-bottom: 40px;
+      }
+      @media screen and (max-width: 560px) {
+        .email-categories--title {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+      .email-categories--grid {
+        grid-column-gap: 16px;
+        grid-row-gap: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      .email-category {
+        grid-gap: 16px;
+        display: grid;
+        grid-template-columns: 56px 1fr;
+      }
+      .email-category--img {
+        height: 56px;
+        width: 56px;
+      }
+      .email-category--img img {
+        max-height: 56px;
+        max-width: 56px;
+      }
+      .email-category--name {
+        color: #11142d;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        line-height: 19px;
+        margin: 0;
+        max-width: 100%;
+        width: 140px;
+      }
+      @media screen and (max-width: 560px) {
+        .email-category--name {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+      .email-footer {
+        border-top: 1px solid rgba(207, 200, 255, 0.5);
+        margin-top: 120px;
+        padding: 28px 24px 85px;
+      }
+      .email-footer ul {
+        padding-left: 0;
+      }
+      .email-footer li {
+        list-style: none;
+      }
+      .email-footer a {
+        text-decoration: none;
+      }
+      .email-footer--links {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .email-footer--links-underlined a {
+        color: #7c7d89 !important;
+        text-decoration: underline;
+      }
+      .email-footer--links li:not(:last-child) {
+        margin-right: 32px;
+      }
+      .email-footer--links a {
+        align-items: flex-end;
+        color: #11142d;
+        display: flex;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+      }
+      .email-footer--links a:hover {
+        color: #5e5ce6;
+      }
+      .email-footer--social {
+        grid-gap: 12px;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+      .email-footer--bottom,
+      .email-footer--social__links {
+        grid-gap: 16px;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .email-footer--bottom {
+        justify-content: space-between;
+      }
+      .email-footer--logo {
+        max-width: 75px;
+        width: 100%;
+      }
+      .email-footer--logo img {
+        object-fit: cover;
+        width: 100%;
+      }
+
+      </style>
+      <div class="email-container">
+        <div class="email-main">
+          <div class="email-logo">
+            <a href="" target="_blank" rel="noreferrer">
+              <img src="./dist/images/logo.png" alt="" />
+            </a>
+          </div>
+          <p class="email-title">Благодарим что выбрали нас!</p>
+          <p class="email-desc">
+            Мы поможем найти исполнителя под любую задачу. Выберите подходящего
+            исполнителя опираясь на выполненные работы, отзывы, рейтинг и
+            стоимость услуг кандидата.
+          </p>
+          <div class="email-illustration">
+            <img src="./dist/images/rectangle_713.png" alt="" />
+          </div>
+          <div class="email-cards-wrapper">
+            <p class="email-cards-wrapper-title">Как мы работаем?</p>
+            <div class="email-cards__item">
+              <div class="email-cards__item--body">
+                <p class="email-cards__item--count">1</p>
+                <div>
+                  <p class="email-cards__item--title">Создайте задание</p>
+                  <p class="email-cards__item--desc">
+                    Опишите, что и когда нужно сделать
+                  </p>
+                </div>
+              </div>
+              <div class="email-cards__item--img">
+                <img
+                  src="./dist/images/0361b955-ab06-4afb-acd6-8ea2d151d7f0_create_task.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="email-cards__item">
+              <div class="email-cards__item--img">
+                <img
+                  src="./dist/images/f05b7fcc-6fa8-4e2a-8fc3-36254c76138c_lupa.svg"
+                  alt=""
+                />
+              </div>
+              <div class="email-cards__item--body">
+                <p class="email-cards__item--count">2</p>
+                <div>
+                  <p class="email-cards__item--title">Разместите задание</p>
+                  <p class="email-cards__item--desc">
+                    Выберите подходящего исполнителя опираясь на выполненные
+                    работы, отзывы, рейтинг и стоимость услуг кандидата.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="email-cards__item">
+              <div class="email-cards__item--body">
+                <p class="email-cards__item--count">3</p>
+                <div>
+                  <p class="email-cards__item--title">Выберите исполнителя</p>
+                  <p class="email-cards__item--desc">
+                    Уже через пару минут вы начнете получать предложения от
+                    исполнителей, готовых выполнить ваше задание.
+                  </p>
+                </div>
+              </div>
+              <div class="email-cards__item--img">
+                <img
+                  src="./dist/images/faeafd49-5ef9-4b1c-9d5b-fae14e5f5927_pc.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <a href="wedo.az" target="_blank" class="email-btn email-btn-main"
+              >Создать задание</a
+            >
+          </div>
+  
+          <div class="email-discover">
+            <div class="emal-discover--body">
+              <p class="email-discover--title">
+                Откройте для себя новые возможности
+              </p>
+              <p class="email-discover--desc">
+                Находите новых клиентов вместе с Wedo. Станьте исполнителем и
+                начните работать на себя.
+              </p>
+              <a
+                class="email-btn email-btn-green"
+                href="https://wedo.az"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Стать исполнителем</a
+              >
+            </div>
+            <div class="email-discover--img">
+              <img src="./dist/images/gif5.png" alt="" />
+            </div>
+          </div>
+          <div class="email-categories">
+            <p class="email-categories--title">Популярные Категории</p>
+          </div>
+          <div class="email-categories--grid">
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-1.png" alt="" />
+              </div>
+              <p class="email-category--name">IT / сайты / приложения</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-2.png" alt="" />
+              </div>
+              <p class="email-category--name">IT / сайты / приложения</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-5.png" alt="" />
+              </div>
+              <p class="email-category--name">Юристы / бухгалтеры</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-4.png" alt="" />
+              </div>
+              <p class="email-category--name">Обслуживание техники</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-5.png" alt="" />
+              </div>
+              <p class="email-category--name">Обслуживание техники</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-1.png" alt="" />
+              </div>
+              <p class="email-category--name">Обслуживание техники</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-2.png" alt="" />
+              </div>
+              <p class="email-category--name">Обслуживание техники</p>
+            </div>
+            <div class="email-category">
+              <div class="email-category--img">
+                <img src="./dist/images/icon-4.png" alt="" />
+              </div>
+              <p class="email-category--name">Юристы / бухгалтеры</p>
+            </div>
+          </div>
+        </div>
+        <div class="email-footer">
+          <ul class="email-footer--links">
+            <li>
+              <a href="https://wedo.az" target="_blank" rel="noopener noreferrer"
+                >Создать задание</a
+              >
+            </li>
+            <li>
+              <a href="https://wedo.az" target="_blank" rel="noopener noreferrer"
+                >Стать исполнителем</a
+              >
+            </li>
+            <li>
+              <a href="https://wedo.az" target="_blank" rel="noopener noreferrer"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+          <div class="email-footer--social">
+            <ul class="email-footer--social__links">
+              <li>
+                <a
+                  href="https://wedo.az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./dist/images/app-store-white.png" alt="" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wedo.az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./dist/images/google-play-white.png" alt="" />
+                </a>
+              </li>
+            </ul>
+            <ul class="email-footer--social__links">
+              <li>
+                <a
+                  href="https://wedo.az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./dist/images/instagram.png" alt="" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wedo.az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="./dist/images/facebook.png" alt="" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="email-footer--bottom">
+            <ul class="email-footer--links email-footer--links-underlined">
+              <li>
+                <a
+                  href="https://wedo.az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Отписаться от рассылки
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wedo.az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Подписка
+                </a>
+              </li>
+            </ul>
+            <a
+              class="email-footer--logo"
+              href="https://wedo.az"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="./dist/images/logo.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </textarea>
+    <script>
+      if (CKEDITOR.env.ie && CKEDITOR.env.version < 9)
+        CKEDITOR.tools.enableHtml5Elements(document);
+
+      CKEDITOR.config.height = 250;
+      CKEDITOR.config.width = "auto";
+      CKEDITOR.config.resize_enabled = false;
+      CKEDITOR.config.allowedContent = true;
+
+      var initSample = (function () {
+        var wysiwygareaAvailable = isWysiwygareaAvailable(),
+          isBBCodeBuiltIn = !!CKEDITOR.plugins.get("bbcode");
+
+        return function () {
+          var editorElement = CKEDITOR.document.getById("editor");
+
+          if (isBBCodeBuiltIn) {
+            editorElement.setHtml(
+              "Hello world!\n\n" +
+                "I'm an instance of [url=https://ckeditor.com]CKEditor[/url]."
+            );
+          }
+
+          if (wysiwygareaAvailable) {
+            CKEDITOR.replace("editor", {
+              height: 350,
+              extraPlugins: "image, dialog, uploadimage",
+              removePlugins: "easyimage",
+              browserContextMenuOnCtrl: true,
+              filebrowserBrowseUrl: "/ckfinder/ckfinder.html",
+              filebrowserImageBrowseUrl: "/ckfinder/ckfinder.html?Type=Images",
+              filebrowserUploadUrl:
+                "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+              filebrowserImageUploadUrl:
+                "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+            });
+          } else {
+            editorElement.setAttribute("contenteditable", "true");
+            CKEDITOR.inline("editor");
+          }
+        };
+
+        function isWysiwygareaAvailable() {
+          if (CKEDITOR.revision == "%RE" + "V%") {
+            return true;
+          }
+
+          return !!CKEDITOR.plugins.get("wysiwygarea");
+        }
+      })();
+
+      initSample();
+    </script>
+  </body>
+</html>
